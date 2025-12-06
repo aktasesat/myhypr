@@ -1,0 +1,14 @@
+[Default Applications]
+inode/directory=pcmanfm-qt.desktop
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=vivaldi-stable.desktop
+x-scheme-handler/unknown=vivaldi-stable.desktop
+x-scheme-handler/discord=vesktop.desktop
+image/*=imv.desktop
+text/*=nvim.desktop
+application/x-zerosize=nvim.desktop
+
+[Added Associations]
+application/x-zerosize=nvim.desktop;
