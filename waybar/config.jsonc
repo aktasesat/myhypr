@@ -6,7 +6,7 @@
     "margin": 0,
     "modules-left": ["hyprland/workspaces", "hyprland/submap", "hyprland/window"],
         "modules-center": [],                                                                           //battery   //disk     // uptime      //updates        // systray
-    "modules-right": ["clock","network", "cpu", "memory", "temperature",   "custom/uptime","pulseaudio", "tray"],
+    "modules-right": ["clock","network", "cpu", "memory", "temperature",   "custom/uptime","pulseaudio","custom/recorder", "tray"],
 
 
     "hyprland/workspaces": {
@@ -154,5 +154,14 @@
     "tray": {
         "icon-size": 18,
         "spacing": 5
-    }
+    },
+"custom/recorder": {
+    "format": "{}",
+    "interval": 1,
+    "exec": "echo '{\"text\": \"● REC\", \"class\": \"recording\"}'",
+    "exec-if": "pgrep -f gpu-screen-recorder",
+    "return-type": "json",
+    "tooltip": false
 }
+}
+

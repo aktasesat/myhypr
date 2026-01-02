@@ -1,0 +1,49 @@
+
+
+/* Zen Winter Colors - Inspired by Cherry Blossom Art */
+@define-color background #f2ead3;        /* Kağıt/Parşömen rengi */
+@define-color background-light #e6dec1;  /* Daha koyu kağıt tonu */
+@define-color foreground #2c2c2c;        /* Mürekkep siyahı (Yazılar için) */
+@define-color black #3e3e3e;             /* Dal koyuluğu */
+@define-color red #be3144;               /* Canlı çiçek kırmızısı */
+@define-color green #6b705c;             /* Yosun yeşili (Dallardaki detaylar) */
+@define-color yellow #d4a373;            /* Güneşin sıcak sarısı */
+@define-color blue #95a7b2;              /* Kar ve gökyüzü soğukluğu */
+@define-color magenta #a66e7a;           /* Yumuşak çiçek pembesi */
+@define-color cyan #81a1c1;              /* Buz mavisi */
+@define-color white #ffffff;             /* Saf kar beyazı */
+@define-color orange #d65d0e;            /* Geleneksel lake turuncusu */
+
+/* Module-specific colors */
+@define-color workspaces-color @foreground;
+@define-color workspaces-focused-bg @red;         /* Aktif masaüstü çiçek gibi parlasın */
+@define-color workspaces-focused-fg @background;  /* Aktif masaüstü yazısı krem rengi */
+@define-color workspaces-urgent-bg @orange;
+@define-color workspaces-urgent-fg @white;
+
+/* Text and border colors for modules */
+@define-color mode-color @orange;
+@define-color mpd-color @magenta;
+@define-color weather-color @blue;
+@define-color playerctl-color @magenta;
+@define-color clock-color @red;                   /* Saat, kırmızı çiçekler gibi dikkat çeksin */
+@define-color cpu-color @green;
+@define-color memory-color @magenta;
+@define-color temperature-color @yellow;
+@define-color temperature-critical-color @red;
+@define-color battery-color @green;
+@define-color battery-charging-color @blue;
+@define-color battery-warning-color @yellow;
+@define-color battery-critical-color @red;
+@define-color network-color @blue;
+@define-color network-disconnected-color @red;
+@define-color pulseaudio-color @black;            /* Mürekkep tonunda ses ikonu */
+@define-color pulseaudio-muted-color @red;
+@define-color backlight-color @yellow;
+@define-color disk-color @cyan;
+@define-color uptime-color @green;
+@define-color updates-color @orange;
+@define-color quote-color @green;
+@define-color idle-inhibitor-color @foreground;
+@define-color idle-inhibitor-active-color @red;
+
