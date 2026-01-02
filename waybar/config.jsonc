@@ -1,12 +1,12 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
+    "height": 35,
     "spacing": 1,
     "margin": 0,
-    "modules-left": ["hyprland/workspaces", "hyprland/mode", "custom/quote","hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "hyprland/submap", "hyprland/window"],
         "modules-center": [],                                                                           //battery   //disk     // uptime      //updates        // systray
-    "modules-right": ["clock","network", "cpu", "memory", "temperature", "battery",  "custom/uptime","pulseaudio", "tray"],
+    "modules-right": ["clock","network", "cpu", "memory", "temperature",   "custom/uptime","pulseaudio", "tray"],
 
 
     "hyprland/workspaces": {
@@ -33,34 +33,10 @@
             "5": []
         }
     },
-
-    "hyprland/mode": {
+    "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>"
     },
 
-    "custom/playerctl": {
-        "format": " 󰐊 {}",
-        "return-type": "json",
-        "max-length": 40,
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl next",
-    },
-/*
-    "custom/weather": {
-        "exec": "curl 'https://wttr.in/?format=1'",
-        "interval": 3600,
-        "format": "{}",
-        "tooltip": true
-    },
-*/
-    "custom/quote": {
-        "format": "󰚛 {}",
-        "interval": 3600,
-        "exec": "fortune -s",
-        "on-click": "fortune | yad --text-info --width=400 --height=200 --title='Fortune'",
-        "tooltip": true
-    },
 
     "custom/updates": {
         "format": "󰚰 {}",
@@ -123,7 +99,7 @@
     "memory": {
         "format": " {}%",
         "interval": 1,
-        "on-click": ""
+        "on-click": "pgrep -a foot | grep floating_btop && pkill -f floating_btop || foot --app-id floating_btop -e btop"  
     },
 
     "temperature": {
@@ -133,19 +109,7 @@
         "on-click": "kitty -e s-tui"
     },
 
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": "󰚥 {capacity}%",
-        "format-alt": "{icon} {time}",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-    },    
-    "network": {
+      "network": {
         "format-wifi": " ({signalStrength}%)",
         "format-ethernet": "⬇{bandwidthDownBytes}",
 	"interval": 1,
@@ -155,33 +119,7 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)" 
     },
-  "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "󰂰 {volume}%",
-        "format-bluetooth-muted": "󰂲 {icon}",
-        "format-muted": "󰝟",
-        "format-icons": {
-            "headphone": "󰋋",
-            "hands-free": "󰥰",
-            "headset": "󰋎",
-            "phone": "󰏲",
-            "portable": "󰄝",
-            "car": "󰄋",
-            "default": ["󰕿", "󰖀", "󰕾"]
-        },
-        "on-click": "pavucontrol",
-        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
-    },
-
-    "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": ["󰃞", "󰃟", "󰃠"],
-        "on-scroll-up": "brightnessctl set +5%",
-        "on-scroll-down": "brightnessctl set 5%-"
-    },
-
+ 
     "disk": {
         "interval": 30,
         "format": "󰋊 {percentage_used}%",
@@ -209,8 +147,8 @@
             "car": "",
            // "default": ["", "", ""]
         },
-        "on-click": "pavucontrol",
-		"on-click-middle": "pulseaudio-control --node-blacklist 'easyeffects_sink' next-node",
+       "on-click": "pkill pavucontrol || pavucontrol",		
+       "on-click-middle": "pulseaudio-control --node-blacklist 'easyeffects_sink' next-node",
         "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
     },
     "tray": {

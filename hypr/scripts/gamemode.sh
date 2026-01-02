@@ -1,0 +1,21 @@
+#!/bin/bash
+HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
+
+if [ "$HYPRGAMEMODE" = 1 ] ; then
+    hyprctl --batch "\
+        keyword animations:enabled 0;\
+        keyword decoration:drop_shadow 0;\
+        keyword decoration:blur:enabled 0;\
+        keyword general:gaps_in 0;\
+        keyword general:gaps_out 0;\
+        keyword general:border_size 1;\
+        keyword decoration:active_opacity 1;\
+        keyword decoration:inactive_opacity 1"
+    
+    notify-send -u low "Game Mode" "Optimizations Enabled (Performance Mode)"
+    exit
+fi
+
+hyprctl reload
+notify-send -u low "Game Mode" "Optimizations Disabled (Visuals Restored)"
+
