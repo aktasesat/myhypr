@@ -17,8 +17,11 @@ alias hconf="nvim /home/$USER/.config/hypr"
 alias vconf="nvim /home/$USER/.config/nvim/"
 alias fconf="nvim /home/$USER/.config/fish/config.fish"
 alias moon="cd /home/$USER/Projects/MobileApp/moonflower/ && npm run dev "
-
-fish_add_path $HOME/.pub-cache/bin
-fish_add_path /home/$USER/development/flutter/bin
+alias aistart='sudo docker compose -f ~/Tools/yapay-zeka/docker-compose.yaml up -d'
+alias aistop='sudo docker compose -f ~/Tools/yapay-zeka/docker-compose.yaml stop'
+# fish_add_path $HOME/.pub-cache/bin
+# fish_add_path /home/$USER/development/flutter/bin
+set -gx EDITOR nvim
+set -gx VISUAL nvim
 end
 
